@@ -1,0 +1,14 @@
+export interface {{ table.name | classCase }} {
+{%- for column in table.columns.array %}
+	{{ column.name | camelCase }}: {{ util.typescriptType(column) }};
+{%- endfor -%}
+{% for relation in table.o2mRelations.array -%}
+
+{% endfor -%}
+{% for relation in table.m2oRelations.array -%}
+
+{% endfor -%}
+{% for relation in table.m2mRelations.array -%}
+
+{% endfor %}
+}

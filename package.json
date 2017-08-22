@@ -6,6 +6,7 @@
   "scripts": {
     "deploy": "npm run deploy:graphql",
     "deploy:graphql": "cd graphql && serverless deploy",
+    "generate": "node pgen.js",
     "install": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +14,13 @@
   "license": "WTFPL",
   "devDependencies": {
     "@types/node": "^8.0.24",
+    "pg-generator": "^4.1.2",
     "serverless": "^1.20.2",
     "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "config": "^1.26.2",
+    "graphql": "^0.10.5",
+    "uuid": "^3.1.0"
   }
 }

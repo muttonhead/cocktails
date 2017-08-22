@@ -5,10 +5,15 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "target": "ES6"
+    "target": "ES6",
+    "lib": [
+      "es6",
+      "esnext.asyncIterable"
+    ]
   },
   "include": [
-    "graphql/**/*"
+    "graphql/**/*",
+    "generated/**/*"
   ],
   "exclude": [
     "node_modules"
