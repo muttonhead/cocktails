@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "target": "ES6"
+  },
+  "include": [
+    "graphql/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
