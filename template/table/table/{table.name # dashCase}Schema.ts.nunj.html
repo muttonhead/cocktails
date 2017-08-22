@@ -1,0 +1,37 @@
+import {
+	GraphQLBoolean,
+	GraphQLID,
+	GraphQLInt,
+	GraphQLList,
+	GraphQLNonNull,
+	GraphQLObjectType,
+	GraphQLSchema,
+	GraphQLString
+} from 'graphql/type';
+
+const {{ table.name | classCase }}Type = new GraphQLObjectType({
+	name: {{ '\'' }}{{ table.name | classCase }}{{ '\'' }},
+	fields: {
+{%- for column in table.columns.array %}
+{%- if column.name.endsWith('_id') %}
+		{{ column.name | camelCase | replace ('Id', 'ID') }}: {
+{%- else %}
+		{{ column.name | camelCase }}: {
+{%- endif %}
+			type: {{ util.graphqlType(column) }}
+		},
+
+{%- endfor %}
+	}
+{% for relation in table.o2mRelations.array -%}
+
+{% endfor -%}
+{% for relation in table.m2oRelations.array -%}
+
+{% endfor -%}
+{% for relation in table.m2mRelations.array -%}
+
+{% endfor %}
+});
+
+exports = {{ table.name | classCase }}Type;
