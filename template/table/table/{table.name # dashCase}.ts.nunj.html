@@ -1,6 +1,10 @@
 export interface {{ table.name | classCase }} {
 {%- for column in table.columns.array %}
+{%- if column.name.endsWith('_id') %}
+	{{ column.name | camelCase | replace ('Id', 'ID') }}: {{ util.typescriptType(column) }};
+{%- else %}
 	{{ column.name | camelCase }}: {{ util.typescriptType(column) }};
+{%- endif %}
 {%- endfor -%}
 {% for relation in table.o2mRelations.array -%}
 
